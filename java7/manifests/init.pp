@@ -37,7 +37,7 @@ class java7 inherits java7::params {
   }
 
   file { "${java7_base}/jdk${java7_version}.tar.gz":
-    mode => 0644,
+    mode => "0644",
     owner => root,
     group => root,
     source => "puppet:///modules/java7/jdk${java7_version}.tar.gz",
@@ -58,7 +58,7 @@ class java7 inherits java7::params {
 
   file { "${java7_base}/jdk${java7_version}":
     ensure => "directory",
-    mode => 0644,
+    mode => "0644",
     owner => root,
     group => root,
     alias => "java7-app-dir"
@@ -67,7 +67,7 @@ class java7 inherits java7::params {
   file { "/etc/profile.d/set_java7_home.sh":
     ensure  =>  present,
     content =>  template("java7/set_java7_home.sh.erb"),
-    mode  => 0755,
+    mode  => "0755",
     owner => root,
     group   => root,
     require =>  File["java7-app-dir"],
