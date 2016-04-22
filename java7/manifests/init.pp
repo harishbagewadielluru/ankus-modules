@@ -79,6 +79,6 @@ class java7 inherits java7::params {
     group   => 'root',
     logoutput => 'true',
     onlyif => '/usr/bin/test -z $JAVA_HOME', #run only if this command returns 0
-    require =>  File ["/etc/profile.d/set_java7_home.sh"],
+    require =>  File["/etc/profile.d/set_java7_home.sh"],
   }
 }
